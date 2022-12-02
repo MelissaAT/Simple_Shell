@@ -6,17 +6,23 @@
  */
 char **_tokenization(char *buffer)
 {
-	int i = 0;
+	int i;
 	char **args = NULL;
-	char *token == NULL;
+	char *token = NULL;
+	
+	(void) buffer;
+	
+	i = 0;
+	token = malloc(sizeof(char *) * 2);
 
-	token = malloc(sizeof(char *) * bufsize);
+	while (token)
+	{
+		args[i] = strdup(token);
+		token = strtok(NULL, " ");
+		i++;
+	}
+	args[i] = NULL;
 
-		while (token != NULL)
-		{
-			args[i] = strdup(token);
-			token = strtok(NULL, " ");
-			i++;
-		}
 	return(args);
+
 }
