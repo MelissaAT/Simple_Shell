@@ -14,10 +14,14 @@ char **_tokenization(char *buffer)
 	
 	i = 0;
 	token = malloc(sizeof(char *) * 2);
-
-	while (token)
+	
+	if (args == NULL)
 	{
-		args[i] = strdup(token);
+		return (NULL);
+	}
+	while (token != NULL)
+	{
+		args[i] = token;
 		token = strtok(NULL, " ");
 		i++;
 	}
