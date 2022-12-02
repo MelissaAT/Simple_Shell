@@ -10,7 +10,6 @@ char **_tokenization(char *buffer)
 	char **args = NULL;
 	char *token = NULL;
 	
-	(void) buffer;
 	
 	i = 0;
 	token = malloc(sizeof(char *) * 2);
@@ -19,6 +18,7 @@ char **_tokenization(char *buffer)
 	{
 		return (NULL);
 	}
+	token = strtok(buffer, " \n");
 	while (token != NULL)
 	{
 		args[i] = token;
