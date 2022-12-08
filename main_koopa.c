@@ -3,25 +3,42 @@
  * main - 
  * Return:
  */
-
-int main()
+int main(int argc __attribute__((unused)), char **av)
 {
-	size_t bufsize = 0;
+	char *command = NULL, **token;
+	size_t size = 0;
 
-	char *buffer = NULL, **tok = NULL;
-
-	while(1)
-	{
-		if (isatty(STDIN_FILENO))
+	/* Interactive mode*/
+		while (1)
 		{
-			write(STDOUT_FILENO, "$ ", 2);
-		}
-		if(getline(&buffer, &bufsize, stdin))
-		tok =  _tokenization(buffer);
-		
-			if (strcmp(*tok, "exit\n") == 0)
-				break;
 
-	}
+			if (isatty(fileno(stdin)))
+				write(STDIN_FILENO, "$ ", 2);
+
+			/* Check for end of file */
+			if (getline(&command, &size, stdin) == EOF)
+			{
+				free(command);
+				exit(0);
+			}
+			token = _tokenization(command, " \n");
+			if (token == NULL || token[0] == NULL)
+			{
+				continue;
+			}
+			if (_strcmp(token[0], "exit") == 0)
+			{
+				break;
+			}
+			if (_strcmp(token[0], "env") == 0)
+			{
+				continue;
+			}
+
+			free(command);
+			 execute_command(token, av);
+		}
+
+		free_grid(token);
 	return(0);
 }
