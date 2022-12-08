@@ -7,22 +7,21 @@
 int main()
 {
 	size_t bufsize = 0;
-	char *buffer = NULL; *token, **tokens = malloc(sizeof(char));
-	int i = 0;
+
+	char *buffer = NULL, **tok = NULL;
 
 	while(1)
 	{
-		write(1, "$", 2);
-		getline(&buffer, &bufsize, stdin);
-
-		token = strtok(buffer, "\n");
-		while(token)
+		if (isatty(STDIN_FILENO))
 		{
-			tokens[i] = token;
-			token = strtok(NULL, "\n");
-			i++
+			write(STDOUT_FILENO, "$ ", 2);
 		}
-		execve(tokens[0], &*tokens, NULL);
+		if(getline(&buffer, &bufsize, stdin))
+		tok =  _tokenization(buffer);
+		
+			if (strcmp(*tok, "exit\n") == 0)
+				break;
+
 	}
 	return(0);
 }
