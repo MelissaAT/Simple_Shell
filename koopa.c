@@ -3,9 +3,11 @@
  * main - 
  * Return:
  */
+
 int main()
 {
 	size_t bufsize = 0;
+
 	char *buffer = NULL, **tok = NULL;
 
 	while(1)
@@ -19,6 +21,7 @@ int main()
 		
 			if (strcmp(*tok, "exit\n") == 0)
 				break;
+
 	}
 	return(0);
 }
