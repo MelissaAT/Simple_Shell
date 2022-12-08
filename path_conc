@@ -1,0 +1,25 @@
+#include "main.h"
+/**
+ * path_conc - concatanates path
+ * @args: arguments
+ * @token: 
+ * Return:
+ */
+char *path_conc(char **args, char **token)
+{
+	char *command;
+	int i = 0;
+	struct stat file;
+
+	while (path_conc[i] != NULL)
+	{
+		command = _strcat(path_conc[i], args[0])
+		if (stat(command, &file) == 0)
+		{
+			args[0] = command;
+				break;
+		}
+		i++;
+	}
+	return (args[0];
+}
