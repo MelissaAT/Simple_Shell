@@ -1,0 +1,26 @@
+#include "main.h"
+/**
+ * search_path - Function that gets the path from enviorment
+ * @env: Enviorment variables
+ *
+ * Return: a string enviroment or Null if it fails
+ */
+char **isearch_path(char **env)
+{
+	int i = 0;
+	char *path, **cp, **token;
+
+	while (env[i])
+	{
+		if (strncmp(env[i], "PATH", 4) == 0)
+		{
+			path = strdup(env[i]);
+			cp = _tokenization(path, "=");
+			free(path);
+			path = strdup(cp[1]);
+		}
+		i++;
+	}
+	token = _tokenization(path, ":");
+	return (token);
+}
