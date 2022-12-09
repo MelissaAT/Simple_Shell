@@ -5,10 +5,11 @@
  * @av: arguments
  * Return: always return 0
  */
-int main(int argc __attribute__((unused)), char **av)
+int main(int argc __attribute__((unused)), char **av, char **env)
 {
 	char *command = NULL, **token;
 	size_t size = 0;
+	int i;
 
 	/* Interactive mode*/
 		while (1)
@@ -30,15 +31,15 @@ int main(int argc __attribute__((unused)), char **av)
 			}
 			if (_strcmp(token[0], "exit") == 0)
 			{
-				break;
+				exit(0);
 			}
 			if (_strcmp(token[0], "env") == 0)
 			{
-				char **env;
 
-				for (env = av; *env != NULL; env++)
+				for (i = 0; env[i]; i++)
 				{
-					printf("%s\n", *env);
+					write(1, env[i], _strlen(env[i]));
+					write(1, "\n", 1);
 				}
 				continue;
 			}
