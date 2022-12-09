@@ -1,0 +1,60 @@
+MAN PAGE 
+
+
+.TH SIMPLE_SHELL 1 2022 - 12 - 9 Linux "USER MANUALS"
+
+.SH NAME
+
+Simple Shell - Simple Unix command language interpreter
+
+.SH SYPNOSIS
+.TP
+.B interactive format
+"./hsh"
+.TP
+.B non-interactive format
+"echo /bin/ls | ./hsh"
+
+.SH DESCRIPTION
+
+Simple shell is a command language interpreter written by Ken Thompson. It is designed to execute commands, and readfrom the standard input. The shell is a command line interface (CLI) program that takes commands from the keyboard and gives them to the operating system to perform. 
+
+.SS PATH
+It does not yet handle piping, redirections, pattern matching, variables expansions.
+
+.SH BUILTINS
+
+.The following built in commands are supported:
+
+.IT
+
+.B env
+
+- prints the environment variables
+
+.B exit
+
+- exits the program
+
+.B /bin/ls
+
+- prints a list of files in the current directory
+
+
+.SS Command Execution
+After a command has been split into words, if it results in a simple command and an optional list of arguments, the following actions are taken.
+
+/bin/ls
+
+.IP [[flags]...[arguments]]
+Lists files in the current directory according to the flags given by user
+
+.SH AUTHORS
+
+.br 
+Melissa Arroyo,
+.B melissarroyo@gmail.com
+
+.br
+Guillermo Rosario,
+.B guillermorosario628@gmail.com
