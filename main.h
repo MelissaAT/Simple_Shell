@@ -16,9 +16,9 @@ int _putchar(char c);
 void handle_sigint(int sig);
 char **_tokenization(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int execute_command(char **args, char **env);
 int path_conc(char **args, char**token);
-int builtin_command(char *command);
-char *concatenate_path(char *dir, char *command);
+int _strlen(char *s);
 #endif
