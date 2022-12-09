@@ -42,4 +42,3 @@ int main(int argc __attribute__((unused)), char **av)
 		free_grid(token);
 	return(0);
 }
-
