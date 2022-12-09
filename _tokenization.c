@@ -19,8 +19,8 @@ char **_tokenization(char *s1, char *del)
 	command = strtok(s1, del); /*first token of the string*/
 	while (command != NULL)
 	{
-		token[i] = malloc(sizeof(char) * ((strlen(command)) + 1));
-		strcpy(token[i], command);
+		token[i] = malloc(sizeof(char) * ((_strlen(command)) + 1));
+		_strcpy(token[i], command);
 		command = NULL;
 		command = strtok(NULL, del);
 		i++;

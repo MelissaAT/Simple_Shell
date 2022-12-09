@@ -20,4 +20,5 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int execute_command(char **args, char **env);
 int path_conc(char **args, char**token);
+int _strlen(char *s);
 #endif
