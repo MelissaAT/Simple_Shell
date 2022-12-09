@@ -1,7 +1,9 @@
 #include "main.h"
 /**
- * main - 
- * Return:
+ * main - Entry point
+ * @argc: count of arguments in av
+ * @av: arguments
+ * Return: always return 0
  */
 int main(int argc __attribute__((unused)), char **av)
 {
@@ -38,7 +40,6 @@ int main(int argc __attribute__((unused)), char **av)
 			free(command);
 			 execute_command(token, av);
 		}
-
 		free_grid(token);
-	return(0);
+	return (0);
 }
