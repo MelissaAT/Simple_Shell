@@ -34,6 +34,12 @@ int main(int argc __attribute__((unused)), char **av)
 			}
 			if (_strcmp(token[0], "env") == 0)
 			{
+				char **env;
+
+				for (env = av; *env != NULL; env++)
+				{
+					printf("%s\n", *env);
+				}
 				continue;
 			}
 
