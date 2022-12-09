@@ -1,9 +1,9 @@
 #include "main.h"
 /**
  * execute_command - execute command
- * @args: double pointer 
- * @env: 
- * Return:
+ * @args: argument pass into the program
+ * @env: enviroment
+ * Return: Exit succes
  */
 int execute_command(char **args, char **env)
 {

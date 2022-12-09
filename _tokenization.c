@@ -1,22 +1,23 @@
 #include "main.h"
-/** read_command - Read a command from standard input
+ /**
+ * _tokenization - implement the strtok function
+ * @s1: char string
+ * @del: delimiter
+ * Return: token
  */
 char **_tokenization(char *s1, char *del)
 {
-	char **token;/*char string ls -l*/
-    char *command = NULL;
-    int i = 0;
+	char **token; /**char string ls -l*/
+	char *command = NULL;
+	int i = 0;
 
-	/*
-	 * maloc * number of spaces + 1
-	 * */
 	token = malloc(sizeof(char *) * 4);
 	if (token == NULL)
 	{
 		return (NULL);
 	}
 
-	command = strtok(s1, del); /*first token of the string*/
+	command = strtok(s1, del); /**first token of the string*/
 	while (command != NULL)
 	{
 		token[i] = malloc(sizeof(char) * ((_strlen(command)) + 1));
